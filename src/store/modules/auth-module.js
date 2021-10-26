@@ -28,13 +28,15 @@ export default {
             commit('loginRequest', { usuario })
 
             return authSrv.login({
-                usuario,
-                contrasena,
+                user: usuario,
+                password: contrasena,
             })
                 .then(response => {
-                    sessionStorage.setItem('token', response.data.token)
-                    sessionStorage.setItem('user', JSON.stringify(response.data.usuario))
-                    commit('loginSuccess', response.data)
+
+                  console.log('response del api',response.config.data)
+                    sessionStorage.setItem('token', response.config.data.token)
+                    sessionStorage.setItem('user', JSON.stringify(response.config.data))
+                    commit('loginSuccess', response.config.data)
                     router.push({ name: 'Home' }).catch(err => {
                         console.log('error perron en el push', err)
                     })

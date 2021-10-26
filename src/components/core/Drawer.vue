@@ -18,248 +18,36 @@
       </template>
 
       <v-list-item two-line>
-        <v-list-item-avatar color="white">
-          <v-img
-            src="../../assets/prof-ico.png"
-            height="34"
-            contain
-            @click.stop="mini = !mini"
-          />
-        </v-list-item-avatar>
-
-        <v-list-item-title class="title">
-          <v-img
-            src="../../assets/profuturo.png"
-            height="34"
-            alt="Profuturo"
-            @click.stop="mini = !mini"
-          />
-        </v-list-item-title>
-      </v-list-item>
-
-      <v-list-item two-line>
         <v-list-item-avatar
           color="primary"
           size="36"
-          :alt="iniciales"
+          :alt="GLI"
           @click.stop="mini = !mini"
         >
-          <span class="white--text headline">{{ iniciales }}</span>
+          <span class="white--text text-h5">{{ GLI }}</span>
         </v-list-item-avatar>
         <v-list-item-title
           color="prof_txt_6"
           size="36"
           @click.stop="mini = !mini"
         >
-          {{ nombre }}
+          {{ GLI }}
         </v-list-item-title>
       </v-list-item>
 
       <v-divider class="mx-3 mb-3" />
 
       <template>
-        <v-list>
-          <v-list-group value="true">
-            <template v-slot:activator>
-              <v-list-item-icon>
-                <v-icon>mdi-transfer</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Traspaso</v-list-item-title>
-            </template>
-            <!--
-            <v-list-group no-action sub-group>
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>Produce traspaso</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-item>
-                <v-list-item-title>Sub-menu</v-list-item-title>
-              </v-list-item>
-            </v-list-group>
-
-           
-            <v-list-group
-              no-action
-              sub-group
-            >
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>Traspasos pro</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-group
-                no-action
-                sub-group
-              >
-                <template v-slot:activator>
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      {{ txt.autenticacion }}
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </template>
-                <v-list-item to="/traspaso-pro/autenticacion/inhabilitacion">
-                  <v-list-item-title>
-                    <v-icon color="prof_txt_1">
-                      mdi-account-off-outline
-                    </v-icon>
-                    {{ txt.inhabilitacion }}
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list-group>
-
-              <v-list-group
-                no-action
-                sub-group
-              >
-                <template v-slot:activator>
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      Admin App
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </template>
-                <v-list-item to="/traspaso-pro/admin-app/catalogos">
-                  <v-list-item-title>
-                    <v-icon color="prof_txt_1">
-                      mdi-file-table-box-multiple-outline
-                    </v-icon>
-                    {{ txt.catalogos }}
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list-group>
-            </v-list-group>
- -->
-            <!-- Eliminacion CT-->
-            <v-list-group no-action sub-group value="false">
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>
-                    {{ txt.certificacion }}</v-list-item-title
-                  >
-                </v-list-item-content>
-              </template>
-
-              <v-list-item to="/certificacion/previo">
-                <v-list-item-title>
-                  <v-icon color="prof_txt_1">
-                    mdi-clipboard-arrow-left-outline
-                  </v-icon>
-                  {{ txt.previo_ct }}
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item to="/certificacion/monitoreo">
-                <v-list-item-title>
-                  <v-icon color="prof_txt_1">
-                    mdi-clipboard-pulse-outline
-                  </v-icon>
-                  Monitoreo
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item to="/certificacion/certificacion">
-                <v-list-item-title>
-                  <v-icon color="prof_txt_1">
-                    mdi-arrow-right-drop-circle-outline
-                  </v-icon>
-                  {{ txt.certificacion }}
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item to="/certificacion/autenticacion">
-                <v-list-item-title>
-                  <v-icon color="prof_txt_1">mdi-account-edit-outline </v-icon>
-                  {{ txt.autenticacion }}
-                </v-list-item-title>
-              </v-list-item>
-            </v-list-group>
-          </v-list-group>
-
-          <v-divider class="mx-3 mb-3" />
-
-          <v-list-group>
-            <template v-slot:activator>
-              <v-list-item-icon>
-                <v-icon> mdi-file-document-edit-outline </v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Registro</v-list-item-title>
-            </template>
-            <v-list-group no-action sub-group>
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>Afore Movil</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-group no-action sub-group>
-                <template v-slot:activator>
-                  <v-list-item-content>
-                    <v-list-item-title>Apertura de Cuentas</v-list-item-title>
-                  </v-list-item-content>
-                </template>
-
-                <v-list-item
-                  to="/registro/afore-movil/apertura-cuentas/carga-archivo"
-                >
-                  <v-list-item-title>
-                    <v-icon color="prof_txt_1">
-                      mdi-file-upload-outline
-                    </v-icon>
-                    Carga archivo
-                  </v-list-item-title>
-                </v-list-item>
-                <v-list-item
-                  to="/registro/afore-movil/apertura-cuentas/actualiza-codace"
-                >
-                  <v-list-item-title>
-                    <v-icon color="prof_txt_1">
-                      mdi-rotate-3d-variant
-                    </v-icon>
-                    Actualiza CODACE
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list-group>
-            </v-list-group>
-          </v-list-group>
-
-          <v-divider class="mx-3 mb-3" />
-
-          <v-list-group>
-            <template v-slot:activator>
-              <v-list-item-icon>
-                <v-icon>mdi-cog-outline</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>{{ txt.configuracion }}</v-list-item-title>
-            </template>
-
-            <v-list-group no-action sub-group value="false">
-              <template v-slot:activator>
-                <v-list-item-content>
-                  <v-list-item-title>IRN</v-list-item-title>
-                </v-list-item-content>
-              </template>
-
-              <v-list-item to="/configuracion/irn/validacion">
-                <v-list-item-title>
-                  <v-icon color="prof_txt_1">
-                    mdi-file-find-outline
-                  </v-icon>
-                  {{ txt.validacion }}
-                </v-list-item-title>
-              </v-list-item>
-              <v-list-item to="/configuracion/irn/carga-archivo-irn">
-                <v-list-item-title>
-                  <v-icon color="prof_txt_1">
-                    mdi-file-upload-outline
-                  </v-icon>
-                  Carga archivo
-                </v-list-item-title>
-              </v-list-item>
-            </v-list-group>
-          </v-list-group>
-          <v-divider class="mx-3 mb-3" />
-        </v-list>
+        <v-list-item to="/Administrators">
+          <v-list-item-icon>
+            <v-icon>
+              mdi-account-details
+            </v-icon>
+          </v-list-item-icon>
+          <v-list-item-title>
+            Administrators
+          </v-list-item-title>
+        </v-list-item>
       </template>
 
       <v-list-item @click="logout">
@@ -276,100 +64,82 @@
   </div>
 </template>
 <script>
-export default {
-  props: {
-    opened: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      mini: true,
-      links: [],
-      usuario: {},
-      iniciales: "",
-      nombre: "",
-      txt: {
-        configuracion: this.$decoder("Configuraci&oacute;n"),
-        validacion: this.$decoder("Validaci&oacute;n"),
-        inhabilitacion: this.$decoder("inhabilitaci&oacute;n"),
-        autenticacion: this.$decoder("Autenticaci&oacute;n"),
-        cerrar_sesion: this.$decoder("Cerrar sesi&oacute;n"),
-        catalogos: this.$decoder("Cat&aacute;logos"),
-        certificacion: this.$decoder("Certificaci&oacute;n"),
-        previo_ct: this.$decoder("Previo"),
-        ejecucion: this.$decoder("Ejecuci&oacute;n")
-      }
-    };
-  },
-  computed: {
-    // ...mapState('app', ['image', 'color']),
-    inputValue: {
-      get() {
-        console.log("get inputValue :", this.$store.state.app.drawer);
-        return this.$store.state.app.drawer;
+  export default {
+    props: {
+      opened: {
+        type: Boolean,
+        default: false,
       },
-      set(val) {
-        console.log("set inputValue :", val);
-        this.$store.commit("app/setDrawer", val);
-        // this.setDrawer(val)
+    },
+    data () {
+      return {
+        mini: true,
+        links: [],
+        usuario: {},
+        iniciales: '',
+        nombre: '',
+        txt: {
+          cerrar_sesion: this.$decoder('Cerrar sesi&oacute;n'),
+
+        },
       }
-    }
-  },
-  created() {
-    // this.currentRoute = this.$route.matched[1].meta.name || this.$route.name
-    this.usuario = JSON.parse(sessionStorage.getItem("user"));
-    this.iniciales =
-      this.usuario.nombre.charAt(0) + this.usuario.apellidoPaterno.charAt(0);
-    this.nombre =
-      this.usuario.nombre +
-      " " +
-      this.usuario.apellidoPaterno +
-      " " +
-      this.usuario.apellidoMaterno;
-  },
+    },
+    computed: {
+      inputValue: {
+        get () {
+          console.log('get inputValue :', this.$store.state.app.drawer)
+          return this.$store.state.app.drawer
+        },
+        set (val) {
+          console.log('set inputValue :', val)
+          this.$store.commit('app/setDrawer', val)
+        },
+      },
+    },
+    created () {
 
-  methods: {
-    // ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
+    },
 
-    logout() {
-      this.$swal({
-        title: this.$decoder("Cerrar Sesi&oacute;n"),
-        text: this.$decoder("¿Desea salir de la aplicaci&oacute;n?"),
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Si",
-        cancelButtonText: "No",
-        showCloseButton: true,
-        showLoaderOnConfirm: true
-      }).then(result => {
-        if (result.value) {
-          this.$store.dispatch("auth/logout");
-        }
-      });
-    }
+    methods: {
+      // ...mapMutations('app', ['setDrawer', 'toggleDrawer']),
+
+      logout () {
+        this.$swal({
+          title: this.$decoder('Cerrar Sesi&oacute;n'),
+          text: this.$decoder('¿Desea salir de la aplicaci&oacute;n?'),
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Si',
+          cancelButtonText: 'No',
+          showCloseButton: true,
+          showLoaderOnConfirm: true,
+        }).then(result => {
+          if (result.value) {
+            this.$store.dispatch('auth/logout')
+          }
+        })
+      },
+    },
   }
-};
 </script>
 
 <style lang="css" scoped>
 .icon {
-  color: #0181c4 !important;
+  color: #2596be !important;
 }
 .item {
-  color: #0181c4 !important;
+  color: #2596be !important;
   caret-color: #004b8d !important;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 .item :selection {
-  color: #0181c4 !important;
+  color: #2596be !important;
   background-color: white !important;
   text-shadow: none;
 }
 
 .item:not(.item--active):not(.item--disabled) {
-  color: #0181c4 !important;
+  color: #2596be !important;
 }
 </style>

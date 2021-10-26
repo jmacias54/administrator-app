@@ -3,9 +3,9 @@ module.exports = {
     'vuetify',
   ],
   outputDir:
-    process.env.NODE_ENV === 'production' ? 'dist/AfiliacionPortal' : 'dist',
+    process.env.NODE_ENV === 'production' ? 'dist/AdminPortal' : 'dist',
   publicPath:
-    process.env.NODE_ENV === 'production' ? '/AfiliacionPortal/' : '/',
+    process.env.NODE_ENV === 'production' ? '/AdminPortal/' : '/',
   assetsDir:
     process.env.NODE_ENV === 'production' ? 'public/' : '',
 

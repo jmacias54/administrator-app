@@ -28,16 +28,7 @@ export default {
     nombre: ""
   }),
   created() {
-    // this.currentRoute = this.$route.matched[1].meta.name || this.$route.name
-    this.usuario = JSON.parse(sessionStorage.getItem("user"));
-    this.iniciales =
-      this.usuario.nombre.charAt(0) + this.usuario.apellidoPaterno.charAt(0);
-    this.nombre =
-      this.usuario.nombre +
-      " " +
-      this.usuario.apellidoPaterno +
-      " " +
-      this.usuario.apellidoMaterno;
+   
   },
   methods: {
 

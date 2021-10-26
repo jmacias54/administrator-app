@@ -3,18 +3,16 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '../views/Login.vue'
 import Admin from '../components/core/Admin.vue'
-
+import Administrators from '../views/Administrators.vue'
 import Home from '../views/Home.vue'
 
-/* R O U T E S */
-import configuracionRouter from '@/views/configuracion/router'
-import traspasoRouter from '@/views/traspaso/router'
+
 
 Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
-  base: '/',
+  base: process.env.NODE_ENV === 'production' ? '/AdminPortal/' : '/',
 
   scrollBehavior() {
     return { x: 0, y: 0 }
@@ -45,8 +43,16 @@ const router = new Router({
           },
 
         },
-        { ...traspasoRouter },
-        { ...configuracionRouter },
+        {
+          path: '/Administrators',
+          name: 'Administrators',
+          component: Administrators,
+          meta: {
+            text: 'Administrators',
+          },
+
+        },
+
 
       ],
     },
@@ -80,7 +86,7 @@ router.beforeEach((to, from, next) => {
         if (activeRoles.includes(user.idRole)) {
           next()
         } else {
-          if (to.name !== 'Home') { 
+          if (to.name !== 'Home') {
             next({ name: 'Home' })
           }
         }

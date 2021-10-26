@@ -2,20 +2,34 @@
   <v-content class="bg">
     <snackbar ref="snackbar" />
 
-    <v-container class="fill-height" fluid>
-      <v-row align="center" justify="center">
-        <v-col cols="12" sm="8" md="4">
+    <v-container
+      class="fill-height"
+      fluid
+    >
+      <v-row
+        align="center"
+        justify="center"
+      >
+        <v-col
+          cols="12"
+          sm="8"
+          md="4"
+        >
           <v-card class="mx-auto">
             <v-toolbar flat>
               <v-tooltip bottom>
                 <template v-slot:activator="{ on }">
-                  <v-btn icon large target="_blank" v-on="on">
+                  <v-btn
+                    icon
+                    large
+                    target="_blank"
+                    v-on="on"
+                  >
                     <v-avatar>
                       <img
-                        src="../assets/prof-ico.png"
-                        alt="Profuturo"
+                        src=""
                         height="34"
-                      />
+                      >
                     </v-avatar>
                   </v-btn>
                 </template>
@@ -68,73 +82,79 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-          <v-row align="center" justify="center" />
-          <v-row align="center" justify="center"> </v-row>
+          <v-row
+            align="center"
+            justify="center"
+          />
+          <v-row
+            align="center"
+            justify="center"
+          />
         </v-col>
       </v-row>
     </v-container>
   </v-content>
 </template>
 <script>
-import { mapGetters } from "vuex";
-import snackbar from "@/components/modal/Snackbar.vue";
+  import { mapGetters } from 'vuex'
+  import snackbar from '@/components/modal/Snackbar.vue'
 
-export default {
-  components: { snackbar },
-  data() {
-    return {
-      password_rules: [
-        v => !!v || this.$decoder("el campo Contrase&ntilde;a es requerido")
-      ],
-      usuario_rules: [v => !!v || "el campo Usuario es requerido."],
-      form: {
-        usuario: "",
-        contrasena: "",
-        sendingForm: false,
-        cargando: false
-      },
-      txt: {
-        password_txt: "",
-        iniciar_sesion: this.$decoder("Iniciar sesi&oacute;n")
+  export default {
+    components: { snackbar },
+    data () {
+      return {
+        password_rules: [
+          v => !!v || this.$decoder('el campo Contrase&ntilde;a es requerido'),
+        ],
+        usuario_rules: [v => !!v || 'el campo Usuario es requerido.'],
+        form: {
+          usuario: '',
+          contrasena: '',
+          sendingForm: false,
+          cargando: false,
+        },
+        txt: {
+          password_txt: '',
+          iniciar_sesion: this.$decoder('Iniciar sesi&oacute;n'),
+        },
       }
-    };
-  },
-
-  beforeCreate: () => {
-    document.body.className = "full-page";
-  },
-
-  created() {
-    this.txt.password_txt = this.$decoder("Contrase&ntilde;a");
-    this.$store.dispatch("auth/initAuth");
-  },
-
-  computed: {
-    ...mapGetters({
-      loginStatus: "auth/status"
-    })
-  },
-
-  methods: {
-    validateBeforeSubmit() {
-      console.log(" -- validateBeforeSubmit -- ");
-      this.form.cargando = true;
-      if (this.$refs.form.validate()) {
-        this.handleSubmit();
-      }
-      this.form.cargando = false;
     },
 
-    handleSubmit() {
-      console.log(" -- handleSubmit -- ");
-      const { usuario, contrasena } = this.form;
-      this.form.sendingForm = true;
+    beforeCreate: () => {
+      document.body.className = 'full-page'
+    },
 
-      this.$store
-        .dispatch("auth/login", { usuario, contrasena })
-        .catch(({ status }) => {
-          this.form.cargando = false;
-          /* this.$swal({
+    created () {
+      this.txt.password_txt = this.$decoder('Contrase&ntilde;a')
+      this.$store.dispatch('auth/initAuth')
+    },
+
+    computed: {
+      ...mapGetters({
+        loginStatus: 'auth/status',
+      }),
+    },
+
+    methods: {
+      validateBeforeSubmit () {
+        console.log(' -- validateBeforeSubmit -- ')
+        this.form.cargando = true
+        if (this.$refs.form.validate()) {
+          this.handleSubmit()
+        }
+        this.form.cargando = false
+      },
+
+      handleSubmit () {
+        console.log(' -- handleSubmit -- ')
+        const { usuario, contrasena } = this.form
+        this.form.sendingForm = true
+
+        this.$store
+          .dispatch('auth/login', { usuario, contrasena })
+          .catch(({ status }) => {
+            this.form.cargando = false
+            /* this.$swal({
               icon: 'warning',
               title: 'Credenciales invalidas...',
               text: this.$decoder('Usuario o contrase&ntilde;a invalido.!'),
@@ -143,18 +163,18 @@ export default {
               showLoaderOnConfirm: true,
             }) */
 
-          this.$refs.snackbar.open(
-            this.$decoder("Usuario o contrase&ntilde;a invalido"),
-            "warning"
-          );
-        })
-        .finally(() => {
-          this.form.sendButtonText = "Ingresar a mi cuenta";
-          this.form.sendingForm = false;
-        });
-    }
+            this.$refs.snackbar.open(
+              this.$decoder('Usuario o contrase&ntilde;a invalido'),
+              'warning'
+            )
+          })
+          .finally(() => {
+            this.form.sendButtonText = 'Ingresar a mi cuenta'
+            this.form.sendingForm = false
+          })
+      },
+    },
   }
-};
 </script>
 <style scoped>
 .bg {

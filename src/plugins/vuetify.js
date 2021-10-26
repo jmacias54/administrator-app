@@ -8,7 +8,7 @@ export default new Vuetify({
   theme: {
     themes: {
       light: {
-        primary: '#004b8d',
+        primary: '#2596be',
         secondary: '#ffc000',
         tertiary: '#0181c4',
         accent: '#82B1FF',
@@ -16,6 +16,21 @@ export default new Vuetify({
         info: '#00d3ee',
         success: '#53b312',
         warning: '#fdbd2c',
+        profPrimary: '#2596be',
+        profSecondary: '#ffc000',
+        prof_tertiary: '#7fb8e6',
+        prof_tertiary_2: '#4cbbee',
+        prof_tertiary_3: '#3eb6bb',
+        prof_background_1: '#374047',
+        prof_background_2: '#374047',
+        prof_background_3: '#dadfe9',
+        prof_background_withe: '#ffffff',
+        prof_txt_1: '#0181c4',
+        prof_txt_2: '#ea7403',
+        prof_txt_3: '#374047',
+        prof_txt_4: '#979797',
+        prof_txt_5: '#c5c5c5',
+        prof_txt_6: '#ff0d55',
 
       },
       dark: {
