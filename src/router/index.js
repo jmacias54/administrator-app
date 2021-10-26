@@ -80,7 +80,7 @@ router.beforeEach((to, from, next) => {
         if (activeRoles.includes(user.idRole)) {
           next()
         } else {
-          if (to.name !== 'Home') { //eslint-disable-line
+          if (to.name !== 'Home') { 
             next({ name: 'Home' })
           }
         }

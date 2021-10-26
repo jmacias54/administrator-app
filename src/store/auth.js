@@ -35,7 +35,6 @@ export default {
           sessionStorage.setItem('token', response.data.token)
           sessionStorage.setItem('user', JSON.stringify(response.data.usuario))
           commit('loginSuccess', response.data)
-          // eslint-disable-next-line handle-callback-err
           router.push({ name: 'Home' }).catch(err => {
             console.log('error perron en el push', err)
            })
