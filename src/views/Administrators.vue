@@ -3,55 +3,8 @@
     <v-container>
       <v-container>
         <v-card
-          ref="form"
           class="mx-auto"
         >
-          <v-row class="d-flex justify-center">
-            <v-col
-              cols="4"
-              lg="3"
-            >
-              <v-text-field
-                v-model="loteProdInicio"
-                dense
-                label="Lote Inicio"
-                :rules="[() => !!loteProdInicio || 'Este campo es requerido']"
-                :error-messages="errorMessages"
-                type="number"
-                required
-              />
-            </v-col>
-
-            <v-col
-              cols="4"
-              lg="3"
-            >
-              <v-text-field
-                v-model="loteProdFin"
-                dense
-                label="Lote Fin"
-                :rules="[() => !!loteProdFin || 'Este campo es requerido']"
-                :error-messages="errorMessages"
-                type="number"
-                required
-              />
-            </v-col>
-
-            <v-col
-              cols="4"
-              lg="3"
-            >
-              <v-btn
-                class="ma-2"
-                :loading="cargando"
-                :disabled="cargando"
-                color="primary"
-                @click="consultar"
-              >
-                Buscar
-              </v-btn>
-            </v-col>
-          </v-row>
           <v-row>
             <v-col
               cols="4"
@@ -132,24 +85,19 @@
         listaAdmins: [],
         headers: [
           {
-            text: 'Etapa',
+            text: 'Nombres',
             align: 'start',
             sortable: false,
-            value: 'descripcion',
+            value: 'name',
           },
-          { text: 'Aceptadas', value: 'aceptadas' },
-          { text: 'Pendientes', value: 'pendientes' },
+          { text: 'Apellidos', value: 'lastName' },
+          { text: 'Estatus', value: 'status' },
         ],
       }
     },
 
     computed: {
-      form () {
-        return {
-          loteProdInicio: this.loteProdInicio,
-          loteProdFin: this.loteProdFin,
-        }
-      },
+
     },
     watch: {
       name () {
